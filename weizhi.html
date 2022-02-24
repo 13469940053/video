@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无风不起浪@你-开发小工具</title>
+</head>
+<body>
+<p id="demo" style='font-size:8em'>获取您当前坐标：</p>
+<!--button onclick="getLocation()">点我</button-->
+
+<script>
+var x=document.getElementById("demo");
+function getLocation()
+{
+	if (navigator.geolocation)
+	{
+		navigator.geolocation.getCurrentPosition(showPosition);
+	}
+	else
+	{
+		x.innerHTML="该浏览器不支持获取地理位置。";
+	}
+}
+
+function showPosition(position)
+{
+	x.innerHTML="你当前的位置是：<hr>纬度: " + position.coords.latitude + 
+	"<br>经度: " + position.coords.longitude;	
+}
+getLocation();
+</script>
+</body>
+</html>
+    
+    
+    
